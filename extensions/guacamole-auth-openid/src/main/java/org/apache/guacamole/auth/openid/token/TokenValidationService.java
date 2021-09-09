@@ -80,6 +80,7 @@ public class TokenValidationService {
 
         // Create JWT consumer for validating received token
         JwtConsumer jwtConsumer = new JwtConsumerBuilder()
+                .setSkipSignatureVerification()
                 .setRequireExpirationTime()
                 .setMaxFutureValidityInMinutes(confService.getMaxTokenValidity())
                 .setAllowedClockSkewInSeconds(confService.getAllowedClockSkew())
